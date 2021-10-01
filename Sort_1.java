@@ -1,46 +1,31 @@
-package prog;
-
-public class Sort_1 {
-
-	public static void main(String[] args) {
-		int[] array = {1, 5, 2, 6, 3, 7, 4};
-		int[][] commands = {{2,5,3}, {4, 4, 1}, {1, 7, 3}};
-		
-		System.out.println(solution(array, commands));
-		
-	}
-	
-	public static int[] solution(int[] array, int[][] commands) {
+class Solution {
+   
+    public int[] solution(int[] array, int[][] commands) {
         int[] answer = new int[commands.length];
         int index = 0;
         
         
-        // 2Â÷¿­ ¹è¿­ÀÇ ±æÀÌ¸¸Å­ ¹İº¹ÇÏ´Ù.
+        // 2ì°¨ì—´ ë°°ì—´ì˜ ê¸¸ì´ë§Œí¼ ë°˜ë³µí•˜ë‹¤.
         for(int i = 0; i < commands.length; i++) {
-        	// arrayÀÇ °ªµé Áß i¹øÂ°ºÎÅÍ j¹øÂ° ±îÁö ÀÚ¸¥ ¼ıÀÚ¸¦ ³ÖÀ» ÀÓ½Ã ¹è¿­
+        	// arrayì˜ ê°’ë“¤ ì¤‘ ië²ˆì§¸ë¶€í„° jë²ˆì§¸ ê¹Œì§€ ìë¥¸ ìˆ«ìë¥¼ ë„£ì„ ì„ì‹œ ë°°ì—´
         	int [] arr = new int[commands[i][1] - commands[i][0] + 1];
         	int n = 0;
-        	// commandsÀÇ Ã¹¹øÂ° ¿ø¼Ò~µÎ¹øÂ° ¿ø¼Ò±îÁö ¹İº¹
+        	// commandsì˜ ì²«ë²ˆì§¸ ì›ì†Œ~ë‘ë²ˆì§¸ ì›ì†Œê¹Œì§€ ë°˜ë³µ
         	for(int j = commands[i][0]; j <= commands[i][1]; j++) {
-        		arr[n] = array[j-1];	// -1À» ÇÑ ÀÌÀ¯´Â ÀÎµ¦½º-1¹øÂ° ºÎÅÍ ÀÚ¸£±â¶§¹®
+        		arr[n] = array[j-1];	// -1ì„ í•œ ì´ìœ ëŠ” ì¸ë±ìŠ¤-1ë²ˆì§¸ ë¶€í„° ìë¥´ê¸°ë•Œë¬¸
         		n++;
         	}
-        	// Á¤·Ä
+        	// ì •ë ¬
         	bubble(arr.length, arr);
         	
-        	//for(int a = 0; a< arr.length; a++ ) {
-        	//	System.out.print(arr[a]);
-        	//}
-        	System.out.println();
         	answer[index] = arr[commands[i][2]-1];
         	index++;
         	
         }
         return answer;
     }
-
-	/*
-	 * ¹öºí ¼ÖÆ®
+    /*
+	 * ë²„ë¸” ì†”íŠ¸
 	 */
 	static void bubble(int n, int S[]) {
 		for(int i = 0; i < n-1; i++) {
@@ -53,5 +38,4 @@ public class Sort_1 {
 			}
 		}
 	}
-
 }
